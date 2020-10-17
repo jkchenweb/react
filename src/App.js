@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
-import './App.css';
 import Directory from './components/DirectoryComponent';
+import './App.css';
 import { CAMPSITES } from './shared/campsites';
 
 class App extends Component {
-    class App extends Component {
         constructor(props) {
             super(props);
             this.state = {
@@ -23,7 +22,7 @@ class App extends Component {
                 <Directory campsites={this.state.campsites} />
             </div>
         );
-    }
+    };
 }
 
 export default App;
