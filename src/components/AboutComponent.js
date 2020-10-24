@@ -24,7 +24,7 @@ function About(props) {
             <Media tag="li" key={partner.id}>
                 <RenderPartner partner={partner} />
             </Media>
-        );
+        )
     });
 
     return (
