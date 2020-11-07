@@ -10,7 +10,6 @@ const minLength = len => val => val && (val.length >= len);
 const isNumber = val => !isNaN(+val);
 const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
-
 class Contact extends Component {
 
     constructor(props) {
@@ -36,13 +35,11 @@ class Contact extends Component {
     }
 
     handleSubmit(values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        this.props.postFeedback(values);
         this.props.resetFeedbackForm();
     }
 
-    render (){
-
+    render() {
 
         return (
             <div className="container">
@@ -53,6 +50,7 @@ class Contact extends Component {
                             <BreadcrumbItem active>Contact Us</BreadcrumbItem>
                         </Breadcrumb>
                         <h2>Contact Us</h2>
+                        <hr />
                     </div>
                 </div>
 
@@ -70,14 +68,14 @@ class Contact extends Component {
                         <a role="button" className="btn btn-link" href="mailto:fakeemail@fakeemail.co"><i className="fa fa-envelope-o" /> campsites@nucamp.co</a>
                     </div>
                 </div>
-                
+
                 <div className="row row-content">
                     <div className="col-12">
                         <h2>Send us your Feedback</h2>
                         <hr />
                     </div>
                     <div className="col-md-10">
-                    <Form model="feedbackForm" onSubmit={values => this.handleSubmit(values)}>  
+                        <Form model="feedbackForm" onSubmit={values => this.handleSubmit(values)}>
                             <Row className="form-group">
                                 <Label htmlFor="firstName" md={2}>First Name</Label>
                                 <Col md={10}>
@@ -89,8 +87,8 @@ class Contact extends Component {
                                             minLength: minLength(2),
                                             maxLength: maxLength(15)
                                         }}
-                                        />
-                                        <Errors
+                                    />
+                                    <Errors
                                         className="text-danger"
                                         model=".firstName"
                                         show="touched"
